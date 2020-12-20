@@ -39,4 +39,5 @@
     arguments: "{{ item }}"
     working_dir: "{{ drupal_composer_install_dir }}"
   with_items: "{{ drupal_composer_dependencies|default([]) }}"
-  become: false
+  become: "{{ drupal_core_owner_become }}"
+  become_user: "{{ drupal_core_owner }}"
